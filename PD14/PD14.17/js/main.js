@@ -1,26 +1,12 @@
-// Funkcija, kuri tikrina, ar skaičius yra palindromas
-function arPalindromas(skaicius) {
-    const skaiciausTekstas = skaicius.toString();
-    const atvirkstinisTekstas = skaiciausTekstas.split('').reverse().join('');
-    return skaiciausTekstas === atvirkstinisTekstas;
-}
+const maxNum = 10;
 
-// Funkcija, kuri randa pirmąją dešimtį natūraliųjų skaičių, kurių kvadratai yra palindromai
-function rastiPalindrominiusKvadratus() {
-    const palindrominiaiKvadratai = [];
-    let skaitiklis = 1;
+console.log("Results:");
 
-    while (palindrominiaiKvadratai.length < 10) {
-        const kvadratas = skaitiklis ** 2;
-        if (arPalindromas(kvadratas)) {
-            palindrominiaiKvadratai.push(kvadratas);
-        }
-        skaitiklis++;
+for (let num = 1; num <= maxNum; num++) {
+    var squareNum = num * num;
+    var squareNumString = squareNum.toString();
+    var reverseString = squareNumString.split("").reverse().join("");
+    if (squareNumString == reverseString) {
+        console.log(num, squareNum);
     }
-
-    return palindrominiaiKvadratai;
 }
-
-// Rasti ir išvesti pirmąją dešimtį palindrominių kvadratų
-const rezultatai = rastiPalindrominiusKvadratus();
-console.log('Pirmoji dešimtis palindrominių kvadratų:', rezultatai);

@@ -1,16 +1,17 @@
-// Funkcija, kuri išveda skaičius iš intervalo [n; m], kurių paskutinis skaitmuo nelygus 3 ir dalijasi iš 3
-function isvestiSkaičius(n, m) {
-    for (let skaicius = n; skaicius <= m; skaicius++) {
-        // Tikriname, ar paskutinis skaitmuo nelygus 3 ir skaicius dalijasi iš 3 be liekanos
-        if (skaicius % 3 === 0 && skaicius % 10 !== 3) {
-            console.log(skaicius);
-        }
+var n = 30;
+const m = 40;
+const divisor = 2;
+const forbiddenDigit = 2;
+
+console.log("Interval:",n,m);
+
+console.log("Applicable numbers:");
+
+for (let i = n; i <= m; i++) {
+    let lastDigit = i % n;
+    let division = i % divisor;
+
+    if (division == 0 && lastDigit != forbiddenDigit) {
+        console.log(i);
     }
 }
-
-// Duomenys
-const n = 30;
-const m = 40;
-
-// Išvedame rezultatus
-isvestiSkaičius(n, m);

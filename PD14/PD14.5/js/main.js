@@ -1,9 +1,18 @@
-let atlyginimai = [824.25, 1225.12, 459.16, 1500];
+const atlyginimai = [824.25, 1225.12, 459.16, 1500];
 
-let naujasAtliginimas = (esamasAtlyginimas) =>
-  (esamasAtlyginimas > 1000 ? esamasAtlyginimas * 1.05 : esamasAtlyginimas * 1.1).toFixed(2);
+function naujasAtlyginimas(esamasAtlyginimas) {
+    if (esamasAtlyginimas > 1000) {
+        return (esamasAtlyginimas * 1.05).toFixed(2);
+    } else {
+        return (esamasAtlyginimas * 1.1).toFixed(2);
+    }
+}
 
-let naujiAtlyginimai = atlyginimai.map(naujasAtliginimas);
+const naujiAtlyginimai = [];
+
+for (let i = 0; i < atlyginimai.length; i++) {
+    naujiAtlyginimai.push(naujasAtlyginimas(atlyginimai[i]));
+}
 
 console.log("Atlyginimas iki:", atlyginimai.join(", "));
 console.log("Atlyginimas po:", naujiAtlyginimai.join(", "));

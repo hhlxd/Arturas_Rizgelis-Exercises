@@ -1,6 +1,14 @@
-let ameba = 1;
+let ląstelės = 1;
 
-for (let valandos = 3; valandos <= 24; valandos += 3) {
-  ameba *= 2;
-  console.log(`Po ${valandos} valandų bus ${ameba} ląstelės.`);
+const laikoIntervalas = 3;
+
+const laikoTarpai = [3, 6, 9, 12, 15, 18, 21, 24];
+
+for (let laikas = 0; laikas <= 24; laikas++) {
+    if (laikoTarpai.includes(laikas)) {
+        console.log(`Po ${laikas} valandų bus ${ląstelės} ląstelės.`);
+    }
+    if (laikas % laikoIntervalas === 0) {
+        ląstelės *= 2;
+    }
 }

@@ -1,18 +1,12 @@
-// Duomenys
-const a = 96;
-const z = 103;
+var startingNum = 96;
+const endNum = 103;
+var tileSum = 0;
 
-// Funkcija, kuri skaičiuoja, kiek plokštelių reikės visų laiptinės butų numeriams
-function skaiciuotiPloksteles(a, z) {
-    let ploksteliuSkaicius = 0;
+console.log("There are apartments which are numbered from",startingNum,"to",endNum);
 
-    for (let numeris = a; numeris <= z; numeris++) {
-        ploksteliuSkaicius += numeris.toString().length;
-    }
-
-    return ploksteliuSkaicius;
+for (; startingNum <= endNum; startingNum++) {
+    let numText = startingNum.toString();
+    tileSum = tileSum + numText.length;
 }
 
-// Apskaičiuoti ir išvesti rezultatus
-const k = skaiciuotiPloksteles(a, z);
-console.log(`Rezultatas k = ${k}`);
+console.log("We would need",tileSum,"tiles to cover all apartments");

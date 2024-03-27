@@ -1,13 +1,32 @@
-// Duomenys
-const n = 3; // Pacientų skaičius
-const laikai = [18, 10, 10]; // Pacientų vizitų trukmės
+const patients = 3;
+const firstVisit = 18;
+const otherVisits = 10;
 
-// Vidutinė vizito trukmė
-const vidutineTrukme = laikai.reduce((sum, trukme) => sum + trukme, 0) / n;
+console.log("The Doctor gets",patients,"patients a day.");
+console.log("The first visit takes",firstVisit,"minutes, and the other visits take",otherVisits,"minutes.");
 
-// Skaičiuojame kiek kartų vizitas užtrunka ilgiau nei 20 minučių
-const ilgesniUz20Min = laikai.filter(trukme => trukme > 20).length;
+var averageTime = 0;
+var longVisits = 0;
+const longVisitQuota = 20;
 
-// Rezultatai
-console.log(`Vidutinė vizito trukmė: ${vidutineTrukme.toFixed(1)} min.`);
-console.log(`Vizitai, ilgesni nei 20 min.: ${ilgesniUz20Min}`);
+for (let i = 1; i <= patients; i++) {
+    if (i == 1) {
+        averageTime = averageTime + firstVisit;
+
+        if (firstVisit == longVisitQuota) {
+            longVisits++;
+        }
+    } else if (i > 1) {
+        averageTime = averageTime + otherVisits;
+
+        if (otherVisits == longVisitQuota) {
+            longVisits++;
+        }
+    }
+}
+
+averageTime = averageTime / patients;
+averageTime = averageTime.toFixed(1);
+
+console.log("The average time the doctor spent with the patients is",averageTime,"minutes.");
+console.log("Visits that were over",longVisitQuota,"minutes long:",longVisits);

@@ -1,31 +1,20 @@
-function rastiDalikliusIrSumas(a) {
-    let dalikliai = [];
-    let lyginiaiDalikliai = [];
+let discount = 25;
+let savings = 1500;
+let phonePrice = 1799.99;
 
-    for (let i = 1; i <= a; i++) {
-        if (a % i === 0) {
-            dalikliai.push(i);
-            if (i % 2 === 0) {
-                lyginiaiDalikliai.push(i);
-            }
-        }
-    }
+console.log("Austeja saved up",savings,"eur.");
+console.log("The phone costs",phonePrice,"eur without a discount.");
+console.log("The discount is",discount,"percent.");
 
-    const sumaDalikliu = dalikliai.reduce((sum, value) => sum + value, 0);
-    const sumaLyginiuDalikliu = lyginiaiDalikliai.reduce((sum, value) => sum + value, 0);
+let discountOff = (phonePrice / 100) * discount;
+discountOff = discountOff.toFixed(2);
 
-    return {
-        dalikliai: dalikliai,
-        sumaDalikliu: sumaDalikliu,
-        lyginiaiDalikliai: lyginiaiDalikliai,
-        sumaLyginiuDalikliu: sumaLyginiuDalikliu
-    };
-}
+let priceWithDiscount = phonePrice - discountOff;
 
-// Pavyzdys naudojant funkciją
-const a = parseInt(prompt("Įveskite skaičių a:"));
-const rezultatai = rastiDalikliusIrSumas(a);
+console.log("The phone costs",priceWithDiscount,"eur with the",discount,"percent discount.");
 
-console.log(`Dalikliai skaičiaus ${a}: ${rezultatai.dalikliai}`);
-console.log(`Daliklių suma: ${rezultatai.sumaDalikliu}`);
-console.log(`Lyginių daliklių suma: ${rezultatai.sumaLyginiuDalikliu}`);
+if (savings >= priceWithDiscount) {
+    console.log("Austeja will be able to buy the phone.");
+} else if (savings < priceWithDiscount) {
+    console.log("Austeja won't be able to buy the phone.");
+} 

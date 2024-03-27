@@ -1,28 +1,21 @@
-// Funkcija, kuri randa skaičius nuo 1 iki 300 su tik penkiais dalikliais
-function rastiSkaičiusSuPenkiaisDalikliais() {
-    const rezultatai = [];
+const maxNumber = 300;
+const maxDivisors = 5;
+var number = 1;
 
-    for (let skaicius = 1; skaicius <= 300; skaicius++) {
-        let dalikliuSkaicius = 0;
+console.log("Numbers that only have",maxDivisors,"divisors:");
 
-        // Tikriname, kiek skaičius turi daliklių
-        for (let daliklis = 1; daliklis <= skaicius; daliklis++) {
-            if (skaicius % daliklis === 0) {
-                dalikliuSkaicius++;
-            }
-        }
+while (number <= maxNumber) {
+    var divisorCount = 0;
 
-        // Jei skaičius turi tik penkis daliklius, pridedame jį prie rezultatų
-        if (dalikliuSkaicius === 5) {
-            rezultatai.push(skaicius);
+    for (let divisor = 1; divisor <= number; divisor++) {
+        if (number % divisor == 0) {
+            divisorCount++;
         }
     }
 
-    return rezultatai;
+    if (divisorCount == maxDivisors) {
+        console.log(number)
+    }
+
+    number++;
 }
-
-// Pavyzdys: rasti skaičius nuo 1 iki 300 su tik penkiais dalikliais
-const rezultatai = rastiSkaičiusSuPenkiaisDalikliais();
-
-// Spausdiname rezultatus
-console.log('Skaičiai nuo 1 iki 300 su tik penkiais dalikliais:', rezultatai);

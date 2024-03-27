@@ -1,5 +1,9 @@
-for (let skaicius = 100; skaicius <= 200; skaicius++) {
-    if (skaicius % 3 === 0) {
-        console.log(skaicius);
-    }
-}
+function nuosimtoikidviejusimtu() {
+    result = [];
+    for (let i = 100; i <= 200; i++) {
+    result.push(i);
+  }
+    return result;
+  }
+  
+  console.log(nuosimtoikidviejusimtu());

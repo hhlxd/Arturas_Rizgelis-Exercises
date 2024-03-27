@@ -1,20 +1,20 @@
-let Sausis = [-11.5, -10.3, -12, -6.5, -5, -15.5];
-let Vasaris = [-16, -14.5, -11, -10.3, -3.5, 0];
-let Kovas = [-3, -2.5, 0, 5, 9.5, 11.2];
+const sausis = [-11.5, -10.3, -12, -6.5, -5, -15.5];
+const vasaris = [-16, -14.5, -11, -10.3, -3.5, 0];
+const kovas = [-3, -2.5, 0, 5, 9.5, 11.2];
 
-let vidutineTemperatura = (menTemperaturos) => {
+function vidutineTemperatura(menesioTemperaturos) {
     let suma = 0;
-    for (let i = 0; i < menTemperaturos.length; i++) {
-        suma += menTemperaturos[i];
+    for (let i = 0; i < menesioTemperaturos.length; i++) {
+        suma += menesioTemperaturos[i];
     }
-    return suma / menTemperaturos.length;
-};
+    return suma / menesioTemperaturos.length;
+}
 
-let vidutineSausioTemperatura = vidutineTemperatura(Sausis);
-let vidutineVasarioTemperatura = vidutineTemperatura(Vasaris);
-let vidutineKovoTemperatura = vidutineTemperatura(Kovas);
+const vidutineSausioTemperatura = vidutineTemperatura(sausis);
+const vidutineVasarioTemperatura = vidutineTemperatura(vasaris);
+const vidutineKovoTemperatura = vidutineTemperatura(kovas);
 
-let bendrasVidurkis = (vidutineSausioTemperatura + vidutineVasarioTemperatura + vidutineKovoTemperatura) / 3;
+const bendrasVidurkis = (vidutineSausioTemperatura + vidutineVasarioTemperatura + vidutineKovoTemperatura) / 3;
 
 console.log(`Vidutinė sausio temperatūra: ${vidutineSausioTemperatura.toFixed(2)}.`);
 console.log(`Vidutinė vasario temperatūra: ${vidutineVasarioTemperatura.toFixed(2)}.`);
